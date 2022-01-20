@@ -65,7 +65,6 @@ def index():
 def newest_pet():
     newest_pet = Pet.query.order_by(Pet.ID.desc()).first()
     if newest_pet:
-        #message = type(newest_pet)
         message = f"The newest pet in the app is {Pet.to_json(newest_pet)}."
     else:
         message = f"There are no pets in the app."
@@ -78,7 +77,6 @@ def pet_with_name():
     if form1.validate_on_submit():
         pet_name = request.form.get('pet_name')
         pet_with_name = Pet.query.filter_by(Name=pet_name).all()
-        #message = type(pet_with_name)
         message = f"The pets with name {pet_name} are as follows: {Pet.to_json(pet_with_name)}"
         return render_template('pet_with_name.html', form1=form1, message=message)
     else:
