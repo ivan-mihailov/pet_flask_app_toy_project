@@ -1,0 +1,34 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+{% block title %}
+Pet Tracking App
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Welcome to the Pet Tracking App!</h1>
+
+      <p class="lead">Flask app using a sqlite database containing pets (incl. name and breed).</p>
+
+	  <!-- links -->
+	  <p>You can <a href="{{ url_for('add_pet') }}">add a new pet to the tracking app</a>.</p>
+	  <p>You can <a href="{{ url_for( 'newest_pet') }}">display the most recently added pet</a>.</p>
+      <p>You can <a href="{{ url_for( 'pet_with_name') }}">search for all pets with the provided name</a>.</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
