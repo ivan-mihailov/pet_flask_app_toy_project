@@ -67,7 +67,7 @@ def newest_pet():
     if newest_pet:
         message = f"The newest pet in the app is {Pet.to_json(newest_pet)}."
     else:
-        message = f"There are no pets in the app."
+        message = f"There are no pets currently stored in the app."
     return render_template('newest_pet.html', message=message)
 
 
@@ -100,7 +100,7 @@ def add_pet():
         db.session.add(pet)
         db.session.commit()
         message = f"The data for pet {pet_name} has been submitted."
-        return render_template('add_pet.html', message=message)
+        return render_template('add_pet.html', form1=form1, message=message)
     else:
         # show validation errors
         for field, errors in form1.errors.items():
